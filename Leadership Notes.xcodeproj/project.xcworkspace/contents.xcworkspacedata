@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "self:">
+   </FileRef>
+   <FileRef
+      location = "group:CoachingLogApp.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Theme.swift">
+   </FileRef>
+   <FileRef
+      location = "group:AppState.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ModelsEmployee.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ModelsCoachingEntry.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ModelsPersonalNote.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ModelsGoal.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ModelsEntryTemplate.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ModelsReminder.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ContentView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsCoachingLogView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsNotesView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Untitled.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsReportsView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsSettingsView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsPINEntryView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsPINSetupView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsAddEntryView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsAddEmployeeView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsAddNoteView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsEntryDetailView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsNoteDetailView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsEmployeeProfileView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsFilterView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsAboutView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsTemplatesView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsAddTemplateView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:UtilitiesExportManager.swift">
+   </FileRef>
+   <FileRef
+      location = "group:UtilitiesShareSheet.swift">
+   </FileRef>
+   <FileRef
+      location = "group:UtilitiesNotificationManager.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsiPadCoachingLogView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:IMPLEMENTATION.md">
+   </FileRef>
+   <FileRef
+      location = "group:InfoPlistGuide.swift">
+   </FileRef>
+   <FileRef
+      location = "group:SUMMARY.md">
+   </FileRef>
+   <FileRef
+      location = "group:QUICK_REFERENCE.md">
+   </FileRef>
+   <FileRef
+      location = "group:SETUP_CHECKLIST.md">
+   </FileRef>
+   <FileRef
+      location = "group:IconGenerator.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Leadership_NotesApp_FULL.swift">
+   </FileRef>
+</Workspace>
