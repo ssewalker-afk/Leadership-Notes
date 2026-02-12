@@ -5,9 +5,12 @@
       location = "self:">
    </FileRef>
    <FileRef
-      location = "group:TEAM_MANAGEMENT_IMPLEMENTATION.md">
+      location = "group:index.html">
    </FileRef>
    <FileRef
-      location = "group:Info.plist">
+      location = "group:terms-of-service.html">
+   </FileRef>
+   <FileRef
+      location = "group:LEGAL.md">
    </FileRef>
 </Workspace>

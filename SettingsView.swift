@@ -183,6 +183,54 @@ struct SettingsView: View {
                 }
                 .padding(16)
             }
+            
+            // Legal Links
+            CardView(theme: theme) {
+                VStack(alignment: .leading, spacing: 10) {
+                    SectionLabel(text: "📄 LEGAL", theme: theme)
+                    
+                    Link(destination: URL(string: "https://YOUR-USERNAME.github.io/leadership-notes/privacy-policy.html")!) {
+                        HStack {
+                            Text("Privacy Policy")
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundColor(theme.text)
+                            Spacer()
+                            Image(systemName: "arrow.up.right.square")
+                                .foregroundColor(theme.accent)
+                        }
+                        .padding(.vertical, 8)
+                    }
+                    
+                    Divider()
+                        .background(theme.border)
+                    
+                    Link(destination: URL(string: "https://YOUR-USERNAME.github.io/leadership-notes/terms-of-service.html")!) {
+                        HStack {
+                            Text("Terms of Service")
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundColor(theme.text)
+                            Spacer()
+                            Image(systemName: "arrow.up.right.square")
+                                .foregroundColor(theme.accent)
+                        }
+                        .padding(.vertical, 8)
+                    }
+                    
+                    Divider()
+                        .background(theme.border)
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("App Version")
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundColor(theme.textMuted)
+                        Text("1.0.0")
+                            .font(.system(size: 15))
+                            .foregroundColor(theme.text)
+                    }
+                    .padding(.vertical, 4)
+                }
+                .padding(16)
+            }
         }
     }
     
