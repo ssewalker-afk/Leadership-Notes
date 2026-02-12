@@ -2,14 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSUserNotificationsUsageDescription</key>
-	<string>Coaching Log sends you reminders for follow-ups, employee birthdays, and work anniversaries to help you stay organized and maintain strong team relationships.</string>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
 		<string>LaunchImage</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
-		<false/>
+		<true/>
+		<key>UILaunchScreenBackgroundColor</key>
+		<string>f4f1eb</string>
 	</dict>
 </dict>
 </plist>

@@ -7,25 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C7F7D1D2F32B65000458CAA /* privacy-policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 9C7F7D1C2F32B65000458CAA /* privacy-policy.html */; };
+		9C7F7D1F2F32B67700458CAA /* terms-of-service.html in Resources */ = {isa = PBXBuildFile; fileRef = 9C7F7D1E2F32B67700458CAA /* terms-of-service.html */; };
+		9C7F7E512F38435F00458CAA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E502F38435F00458CAA /* Models.swift */; };
+		9C7F7E532F38435F00458CAA /* LeadershipNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E522F38435F00458CAA /* LeadershipNotesApp.swift */; };
+		9C7F7E552F38437600458CAA /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E542F38437600458CAA /* AppStore.swift */; };
+		9C7F7E572F38439300458CAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E562F38439300458CAA /* ContentView.swift */; };
+		9C7F7E592F3843C200458CAA /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E582F3843C200458CAA /* EntryView.swift */; };
+		9C7F7E5B2F3843DD00458CAA /* SharedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E5A2F3843DD00458CAA /* SharedComponents.swift */; };
+		9C7F7E5D2F3843FC00458CAA /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E5C2F3843FC00458CAA /* HistoryView.swift */; };
+		9C7F7E5F2F38442100458CAA /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E5E2F38442100458CAA /* ReportsView.swift */; };
+		9C7F7E612F38445000458CAA /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E602F38445000458CAA /* PeopleView.swift */; };
+		9C7F7E632F38449A00458CAA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E622F38449A00458CAA /* SettingsView.swift */; };
+		9C7F7E652F3844BE00458CAA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C7F7E642F3844BE00458CAA /* README.md */; };
+		9C7F7E672F38456500458CAA /* BUILD_VERIFICATION.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C7F7E662F38456500458CAA /* BUILD_VERIFICATION.md */; };
+		9C7F7E692F384B0D00458CAA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C7F7E682F384B0D00458CAA /* Media.xcassets */; };
 		9CC16A792F19B0310082AF7D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC16A782F19B0310082AF7D /* StoreKit.framework */; };
-		9CC16A7B2F19B0AD0082AF7D /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC16A7A2F19B0AD0082AF7D /* StoreManager.swift */; };
-		9CC16A7D2F19B0F10082AF7D /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC16A7C2F19B0F10082AF7D /* PaywallView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C7556912F18749100E0E006 /* Leadership Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Leadership Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C7F7D1C2F32B65000458CAA /* privacy-policy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "privacy-policy.html"; sourceTree = "<group>"; };
+		9C7F7D1E2F32B67700458CAA /* terms-of-service.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "terms-of-service.html"; sourceTree = "<group>"; };
+		9C7F7E502F38435F00458CAA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		9C7F7E522F38435F00458CAA /* LeadershipNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipNotesApp.swift; sourceTree = "<group>"; };
+		9C7F7E542F38437600458CAA /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		9C7F7E562F38439300458CAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9C7F7E582F3843C200458CAA /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		9C7F7E5A2F3843DD00458CAA /* SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedComponents.swift; sourceTree = "<group>"; };
+		9C7F7E5C2F3843FC00458CAA /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		9C7F7E5E2F38442100458CAA /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
+		9C7F7E602F38445000458CAA /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
+		9C7F7E622F38449A00458CAA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9C7F7E642F3844BE00458CAA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9C7F7E662F38456500458CAA /* BUILD_VERIFICATION.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BUILD_VERIFICATION.md; sourceTree = "<group>"; };
+		9C7F7E682F384B0D00458CAA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		9C7F7E6A2F384BB900458CAA /* Leadership Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Leadership Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC16A782F19B0310082AF7D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		9CC16A7A2F19B0AD0082AF7D /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
-		9CC16A7C2F19B0F10082AF7D /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		9C7556932F18749100E0E006 /* Leadership Notes */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Leadership Notes";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9C75568E2F18749100E0E006 /* Frameworks */ = {
@@ -42,18 +60,30 @@
 		9C7556882F18749100E0E006 = {
 			isa = PBXGroup;
 			children = (
-				9CC16A7C2F19B0F10082AF7D /* PaywallView.swift */,
-				9CC16A7A2F19B0AD0082AF7D /* StoreManager.swift */,
-				9C7556932F18749100E0E006 /* Leadership Notes */,
+				9C7F7E682F384B0D00458CAA /* Media.xcassets */,
 				9CC16A772F19B0310082AF7D /* Frameworks */,
 				9C7556922F18749100E0E006 /* Products */,
+				9C7F7D1C2F32B65000458CAA /* privacy-policy.html */,
+				9C7F7D1E2F32B67700458CAA /* terms-of-service.html */,
+				9C7F7E502F38435F00458CAA /* Models.swift */,
+				9C7F7E522F38435F00458CAA /* LeadershipNotesApp.swift */,
+				9C7F7E542F38437600458CAA /* AppStore.swift */,
+				9C7F7E562F38439300458CAA /* ContentView.swift */,
+				9C7F7E582F3843C200458CAA /* EntryView.swift */,
+				9C7F7E5A2F3843DD00458CAA /* SharedComponents.swift */,
+				9C7F7E5C2F3843FC00458CAA /* HistoryView.swift */,
+				9C7F7E5E2F38442100458CAA /* ReportsView.swift */,
+				9C7F7E602F38445000458CAA /* PeopleView.swift */,
+				9C7F7E622F38449A00458CAA /* SettingsView.swift */,
+				9C7F7E642F3844BE00458CAA /* README.md */,
+				9C7F7E662F38456500458CAA /* BUILD_VERIFICATION.md */,
 			);
 			sourceTree = "<group>";
 		};
 		9C7556922F18749100E0E006 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C7556912F18749100E0E006 /* Leadership Notes.app */,
+				9C7F7E6A2F384BB900458CAA /* Leadership Notes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,14 +111,11 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				9C7556932F18749100E0E006 /* Leadership Notes */,
-			);
 			name = "Leadership Notes";
 			packageProductDependencies = (
 			);
 			productName = "Leadership Notes";
-			productReference = 9C7556912F18749100E0E006 /* Leadership Notes.app */;
+			productReference = 9C7F7E6A2F384BB900458CAA /* Leadership Notes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -130,6 +157,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C7F7E692F384B0D00458CAA /* Media.xcassets in Resources */,
+				9C7F7E652F3844BE00458CAA /* README.md in Resources */,
+				9C7F7D1F2F32B67700458CAA /* terms-of-service.html in Resources */,
+				9C7F7E672F38456500458CAA /* BUILD_VERIFICATION.md in Resources */,
+				9C7F7D1D2F32B65000458CAA /* privacy-policy.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +172,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC16A7B2F19B0AD0082AF7D /* StoreManager.swift in Sources */,
-				9CC16A7D2F19B0F10082AF7D /* PaywallView.swift in Sources */,
+				9C7F7E5D2F3843FC00458CAA /* HistoryView.swift in Sources */,
+				9C7F7E5B2F3843DD00458CAA /* SharedComponents.swift in Sources */,
+				9C7F7E612F38445000458CAA /* PeopleView.swift in Sources */,
+				9C7F7E552F38437600458CAA /* AppStore.swift in Sources */,
+				9C7F7E532F38435F00458CAA /* LeadershipNotesApp.swift in Sources */,
+				9C7F7E632F38449A00458CAA /* SettingsView.swift in Sources */,
+				9C7F7E592F3843C200458CAA /* EntryView.swift in Sources */,
+				9C7F7E572F38439300458CAA /* ContentView.swift in Sources */,
+				9C7F7E5F2F38442100458CAA /* ReportsView.swift in Sources */,
+				9C7F7E512F38435F00458CAA /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q79FHUWC44;
@@ -286,7 +327,6 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Leadership Notes needs access to your photo library to attach photos to coaching entries and employee profiles.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
@@ -312,7 +352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Leadership Notes/Leadership NotesRelease.entitlements";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q79FHUWC44;
@@ -325,7 +365,6 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Leadership Notes needs access to your photo library to attach photos to coaching entries and employee profiles.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
