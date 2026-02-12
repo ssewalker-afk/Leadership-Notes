@@ -13,4 +13,25 @@
    <FileRef
       location = "group:LEGAL.md">
    </FileRef>
+   <FileRef
+      location = "group:support.html">
+   </FileRef>
+   <FileRef
+      location = "group:index 2.html">
+   </FileRef>
+   <FileRef
+      location = "group:LEGAL 2.md">
+   </FileRef>
+   <FileRef
+      location = "group:APP_STORE_CHECKLIST.md">
+   </FileRef>
+   <FileRef
+      location = "group:support 2.html">
+   </FileRef>
+   <FileRef
+      location = "group:terms-of-service 2.html">
+   </FileRef>
+   <FileRef
+      location = "group:index 3.html">
+   </FileRef>
 </Workspace>

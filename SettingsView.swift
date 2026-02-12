@@ -187,9 +187,24 @@ struct SettingsView: View {
             // Legal Links
             CardView(theme: theme) {
                 VStack(alignment: .leading, spacing: 10) {
-                    SectionLabel(text: "📄 LEGAL", theme: theme)
+                    SectionLabel(text: "📄 LEGAL & SUPPORT", theme: theme)
                     
-                    Link(destination: URL(string: "https://YOUR-USERNAME.github.io/leadership-notes/privacy-policy.html")!) {
+                    Link(destination: URL(string: "https://ssewalker-afk.github.io/leadership-notes/support.html")!) {
+                        HStack {
+                            Text("Support & Help")
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundColor(theme.text)
+                            Spacer()
+                            Image(systemName: "arrow.up.right.square")
+                                .foregroundColor(theme.accent)
+                        }
+                        .padding(.vertical, 8)
+                    }
+                    
+                    Divider()
+                        .background(theme.border)
+                    
+                    Link(destination: URL(string: "https://ssewalker-afk.github.io/leadership-notes/privacy-policy.html")!) {
                         HStack {
                             Text("Privacy Policy")
                                 .font(.system(size: 15, weight: .semibold))
@@ -204,7 +219,7 @@ struct SettingsView: View {
                     Divider()
                         .background(theme.border)
                     
-                    Link(destination: URL(string: "https://YOUR-USERNAME.github.io/leadership-notes/terms-of-service.html")!) {
+                    Link(destination: URL(string: "https://ssewalker-afk.github.io/leadership-notes/terms-of-service.html")!) {
                         HStack {
                             Text("Terms of Service")
                                 .font(.system(size: 15, weight: .semibold))
