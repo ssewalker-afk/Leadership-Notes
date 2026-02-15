@@ -8,9 +8,11 @@ enum MainView {
 
 struct ContentView: View {
     @StateObject private var store = AppStore()
+    @StateObject private var subscriptionManager = SubscriptionManager()
     @State private var currentView: MainView = .entry
     @State private var showMenu = false
     @State private var toastMessage: String?
+    @State private var showPaywall = false
     
     var theme: ThemeColors {
         ThemeColors.colors(for: store.theme)
@@ -67,6 +69,23 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(store.theme == .light ? .light : .dark)
+        .fullScreenCover(isPresented: $showPaywall) {
+            PaywallView(subscriptionManager: subscriptionManager)
+        }
+        .onAppear {
+            // Show paywall if not subscribed
+            if !subscriptionManager.isSubscribed {
+                showPaywall = true
+            }
+        }
+        .onChange(of: subscriptionManager.subscriptionStatus) { oldValue, newValue in
+            // Dismiss paywall when subscription becomes active
+            if subscriptionManager.isSubscribed {
+                showPaywall = false
+            } else if newValue == .notSubscribed || newValue == .expired {
+                showPaywall = true
+            }
+        }
     }
     
     // MARK: - Header
@@ -189,7 +208,7 @@ struct ContentView: View {
         case .people:
             PeopleView(store: store, theme: theme, showToast: showToast)
         case .settings:
-            SettingsView(store: store, theme: theme, showToast: showToast)
+            SettingsView(store: store, theme: theme, showToast: showToast, subscriptionManager: subscriptionManager)
         }
     }
     

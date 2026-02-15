@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C79A4B12F3ECCE5005FCEE3 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79A4B02F3ECCE5005FCEE3 /* SubscriptionManager.swift */; };
+		9C79A4B32F3ECD02005FCEE3 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79A4B22F3ECD02005FCEE3 /* PaywallView.swift */; };
+		9C79A4B52F3ECD4F005FCEE3 /* LeadershipNotes.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4B42F3ECD4F005FCEE3 /* LeadershipNotes.storekit */; };
+		9C79A4B72F3ECD73005FCEE3 /* IAP_SETUP_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4B62F3ECD73005FCEE3 /* IAP_SETUP_GUIDE.md */; };
+		9C79A4B92F3ECD85005FCEE3 /* QUICK_START_IAP.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4B82F3ECD85005FCEE3 /* QUICK_START_IAP.md */; };
+		9C79A4BB2F3ECDA2005FCEE3 /* PRE_SUBMISSION_CHECKLIST.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4BA2F3ECDA2005FCEE3 /* PRE_SUBMISSION_CHECKLIST.md */; };
+		9C79A4BD2F3ECDCB005FCEE3 /* PAYWALL_IMPLEMENTATION_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4BC2F3ECDCB005FCEE3 /* PAYWALL_IMPLEMENTATION_SUMMARY.md */; };
+		9C79A4BF2F3ECE07005FCEE3 /* SUBSCRIPTION_FLOW_DIAGRAM.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4BE2F3ECE07005FCEE3 /* SUBSCRIPTION_FLOW_DIAGRAM.md */; };
+		9C79A4C12F3ECE4E005FCEE3 /* TROUBLESHOOTING.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4C02F3ECE4E005FCEE3 /* TROUBLESHOOTING.md */; };
+		9C79A4C32F3ECE8B005FCEE3 /* START_HERE.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4C22F3ECE8B005FCEE3 /* START_HERE.md */; };
+		9C79A4C52F3ECED6005FCEE3 /* USER_EXPERIENCE_PREVIEW.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4C42F3ECED6005FCEE3 /* USER_EXPERIENCE_PREVIEW.md */; };
+		9C79A4C72F3ECF0E005FCEE3 /* FILE_INDEX.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4C62F3ECF0E005FCEE3 /* FILE_INDEX.md */; };
+		9C79A4C92F40311F005FCEE3 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4C82F40311F005FCEE3 /* Configuration.storekit */; };
+		9C79A4CB2F403140005FCEE3 /* FIXES_APPLIED.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C79A4CA2F403140005FCEE3 /* FIXES_APPLIED.md */; };
 		9C7F7D1D2F32B65000458CAA /* privacy-policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 9C7F7D1C2F32B65000458CAA /* privacy-policy.html */; };
 		9C7F7D1F2F32B67700458CAA /* terms-of-service.html in Resources */ = {isa = PBXBuildFile; fileRef = 9C7F7D1E2F32B67700458CAA /* terms-of-service.html */; };
 		9C7F7E512F38435F00458CAA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F7E502F38435F00458CAA /* Models.swift */; };
@@ -26,6 +40,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C79A4B02F3ECCE5005FCEE3 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		9C79A4B22F3ECD02005FCEE3 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		9C79A4B42F3ECD4F005FCEE3 /* LeadershipNotes.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = LeadershipNotes.storekit; sourceTree = "<group>"; };
+		9C79A4B62F3ECD73005FCEE3 /* IAP_SETUP_GUIDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IAP_SETUP_GUIDE.md; sourceTree = "<group>"; };
+		9C79A4B82F3ECD85005FCEE3 /* QUICK_START_IAP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = QUICK_START_IAP.md; sourceTree = "<group>"; };
+		9C79A4BA2F3ECDA2005FCEE3 /* PRE_SUBMISSION_CHECKLIST.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRE_SUBMISSION_CHECKLIST.md; sourceTree = "<group>"; };
+		9C79A4BC2F3ECDCB005FCEE3 /* PAYWALL_IMPLEMENTATION_SUMMARY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PAYWALL_IMPLEMENTATION_SUMMARY.md; sourceTree = "<group>"; };
+		9C79A4BE2F3ECE07005FCEE3 /* SUBSCRIPTION_FLOW_DIAGRAM.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SUBSCRIPTION_FLOW_DIAGRAM.md; sourceTree = "<group>"; };
+		9C79A4C02F3ECE4E005FCEE3 /* TROUBLESHOOTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TROUBLESHOOTING.md; sourceTree = "<group>"; };
+		9C79A4C22F3ECE8B005FCEE3 /* START_HERE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = START_HERE.md; sourceTree = "<group>"; };
+		9C79A4C42F3ECED6005FCEE3 /* USER_EXPERIENCE_PREVIEW.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = USER_EXPERIENCE_PREVIEW.md; sourceTree = "<group>"; };
+		9C79A4C62F3ECF0E005FCEE3 /* FILE_INDEX.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FILE_INDEX.md; sourceTree = "<group>"; };
+		9C79A4C82F40311F005FCEE3 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		9C79A4CA2F403140005FCEE3 /* FIXES_APPLIED.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FIXES_APPLIED.md; sourceTree = "<group>"; };
 		9C7F7D1C2F32B65000458CAA /* privacy-policy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "privacy-policy.html"; sourceTree = "<group>"; };
 		9C7F7D1E2F32B67700458CAA /* terms-of-service.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "terms-of-service.html"; sourceTree = "<group>"; };
 		9C7F7E502F38435F00458CAA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -77,6 +105,20 @@
 				9C7F7E622F38449A00458CAA /* SettingsView.swift */,
 				9C7F7E642F3844BE00458CAA /* README.md */,
 				9C7F7E662F38456500458CAA /* BUILD_VERIFICATION.md */,
+				9C79A4B02F3ECCE5005FCEE3 /* SubscriptionManager.swift */,
+				9C79A4B22F3ECD02005FCEE3 /* PaywallView.swift */,
+				9C79A4B42F3ECD4F005FCEE3 /* LeadershipNotes.storekit */,
+				9C79A4B62F3ECD73005FCEE3 /* IAP_SETUP_GUIDE.md */,
+				9C79A4B82F3ECD85005FCEE3 /* QUICK_START_IAP.md */,
+				9C79A4BA2F3ECDA2005FCEE3 /* PRE_SUBMISSION_CHECKLIST.md */,
+				9C79A4BC2F3ECDCB005FCEE3 /* PAYWALL_IMPLEMENTATION_SUMMARY.md */,
+				9C79A4BE2F3ECE07005FCEE3 /* SUBSCRIPTION_FLOW_DIAGRAM.md */,
+				9C79A4C02F3ECE4E005FCEE3 /* TROUBLESHOOTING.md */,
+				9C79A4C22F3ECE8B005FCEE3 /* START_HERE.md */,
+				9C79A4C42F3ECED6005FCEE3 /* USER_EXPERIENCE_PREVIEW.md */,
+				9C79A4C62F3ECF0E005FCEE3 /* FILE_INDEX.md */,
+				9C79A4C82F40311F005FCEE3 /* Configuration.storekit */,
+				9C79A4CA2F403140005FCEE3 /* FIXES_APPLIED.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,10 +200,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7F7E692F384B0D00458CAA /* Media.xcassets in Resources */,
+				9C79A4C92F40311F005FCEE3 /* Configuration.storekit in Resources */,
+				9C79A4C12F3ECE4E005FCEE3 /* TROUBLESHOOTING.md in Resources */,
+				9C79A4BF2F3ECE07005FCEE3 /* SUBSCRIPTION_FLOW_DIAGRAM.md in Resources */,
+				9C79A4B72F3ECD73005FCEE3 /* IAP_SETUP_GUIDE.md in Resources */,
 				9C7F7E652F3844BE00458CAA /* README.md in Resources */,
 				9C7F7D1F2F32B67700458CAA /* terms-of-service.html in Resources */,
+				9C79A4B92F3ECD85005FCEE3 /* QUICK_START_IAP.md in Resources */,
+				9C79A4C32F3ECE8B005FCEE3 /* START_HERE.md in Resources */,
+				9C79A4CB2F403140005FCEE3 /* FIXES_APPLIED.md in Resources */,
+				9C79A4C52F3ECED6005FCEE3 /* USER_EXPERIENCE_PREVIEW.md in Resources */,
 				9C7F7E672F38456500458CAA /* BUILD_VERIFICATION.md in Resources */,
+				9C79A4BD2F3ECDCB005FCEE3 /* PAYWALL_IMPLEMENTATION_SUMMARY.md in Resources */,
 				9C7F7D1D2F32B65000458CAA /* privacy-policy.html in Resources */,
+				9C79A4B52F3ECD4F005FCEE3 /* LeadershipNotes.storekit in Resources */,
+				9C79A4C72F3ECF0E005FCEE3 /* FILE_INDEX.md in Resources */,
+				9C79A4BB2F3ECDA2005FCEE3 /* PRE_SUBMISSION_CHECKLIST.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +226,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C79A4B12F3ECCE5005FCEE3 /* SubscriptionManager.swift in Sources */,
+				9C79A4B32F3ECD02005FCEE3 /* PaywallView.swift in Sources */,
 				9C7F7E5D2F3843FC00458CAA /* HistoryView.swift in Sources */,
 				9C7F7E5B2F3843DD00458CAA /* SharedComponents.swift in Sources */,
 				9C7F7E612F38445000458CAA /* PeopleView.swift in Sources */,

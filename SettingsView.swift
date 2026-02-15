@@ -5,6 +5,7 @@ struct SettingsView: View {
     @ObservedObject var store: AppStore
     let theme: ThemeColors
     let showToast: (String) -> Void
+    @ObservedObject var subscriptionManager: SubscriptionManager
     
     @State private var selectedTab = "general"
     @State private var editingCategoryId: String?
@@ -58,6 +59,9 @@ struct SettingsView: View {
     // MARK: - General Settings
     private var generalSettings: some View {
         VStack(spacing: 14) {
+            // Subscription Status
+            subscriptionCard
+            
             // Theme
             CardView(theme: theme) {
                 VStack(alignment: .leading, spacing: 6) {
@@ -718,6 +722,84 @@ struct EditTeamCard: View {
                 }
             }
             .padding(16)
+        }
+    }
+}
+
+// MARK: - Subscription Card
+extension SettingsView {
+    @ViewBuilder
+    private var subscriptionCard: some View {
+        CardView(theme: theme) {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        SectionLabel(text: "💳 SUBSCRIPTION", theme: theme)
+                        
+                        HStack(spacing: 6) {
+                            Circle()
+                                .fill(subscriptionManager.isSubscribed ? Color.green : Color.orange)
+                                .frame(width: 8, height: 8)
+                            
+                            Text(statusText)
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(theme.text)
+                        }
+                    }
+                    
+                    Spacer()
+                }
+                
+                if subscriptionManager.isSubscribed {
+                    VStack(alignment: .leading, spacing: 8) {
+                        if subscriptionManager.subscriptionStatus == .inFreeTrial {
+                            Text("🎉 You're in your free trial period")
+                                .font(.system(size: 13))
+                                .foregroundColor(theme.textSoft)
+                        } else {
+                            Text("✓ All features unlocked")
+                                .font(.system(size: 13))
+                                .foregroundColor(theme.textSoft)
+                        }
+                        
+                        Button(action: {
+                            if let url = URL(string: "https://apps.apple.com/account/subscriptions") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("Manage Subscription")
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundColor(theme.accent)
+                        }
+                    }
+                } else {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Start your 7-day free trial")
+                            .font(.system(size: 13))
+                            .foregroundColor(theme.textSoft)
+                        
+                        Text("\(subscriptionManager.displayPrice)/month after trial")
+                            .font(.system(size: 12))
+                            .foregroundColor(theme.textMuted)
+                    }
+                }
+            }
+            .padding(16)
+        }
+    }
+    
+    private var statusText: String {
+        switch subscriptionManager.subscriptionStatus {
+        case .subscribed:
+            return "Active"
+        case .inFreeTrial:
+            return "Free Trial"
+        case .expired:
+            return "Expired"
+        case .notSubscribed:
+            return "Not Subscribed"
+        case .unknown:
+            return "Checking..."
         }
     }
 }
