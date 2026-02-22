@@ -99,31 +99,46 @@ struct PaywallView: View {
                         }
                         .padding(.horizontal, 20)
                         
-                        // Pricing Card
-                        VStack(spacing: 16) {
-                            VStack(spacing: 8) {
-                                Text("Start Your Free Trial")
-                                    .font(.system(size: 24, weight: .bold))
-                                    .foregroundColor(.white)
-                                
-                                Text("7 days free, then \(subscriptionManager.displayPrice)/month")
-                                    .font(.system(size: 16, weight: .medium))
-                                    .foregroundColor(.white.opacity(0.9))
-                                
-                                Text("Cancel anytime")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.white.opacity(0.7))
-                            }
-                            .padding(.top, 20)
+                        // Divider
+                        Rectangle()
+                            .fill(.white.opacity(0.3))
+                            .frame(height: 1)
+                            .padding(.horizontal, 40)
+                            .padding(.vertical, 20)
+                        
+                        // MARK: - 💰 PRICING SECTION (Apple-Compliant)
+                        VStack(spacing: 20) {
+                            // Headline
+                            Text("Leadership Notes Pro")
+                                .font(.system(size: 22, weight: .semibold))
+                                .foregroundColor(.white)
                             
-                            // Subscribe Button
+                            // MAIN PRICE - Largest text on screen
+                            Text("\(subscriptionManager.displayPrice) / month")
+                                .font(.system(size: 48, weight: .bold))
+                                .foregroundColor(.white)
+                                .minimumScaleFactor(0.8)
+                                .lineLimit(1)
+                            
+                            // Secondary - Free trial info (smaller)
+                            Text("Includes 7-day free trial")
+                                .font(.system(size: 16, weight: .regular))
+                                .foregroundColor(.white.opacity(0.85))
+                            
+                            // Supporting line (smallest)
+                            Text("Auto-renews monthly. Cancel anytime.")
+                                .font(.system(size: 13, weight: .regular))
+                                .foregroundColor(.white.opacity(0.7))
+                                .padding(.bottom, 4)
+                            
+                            // Subscribe Button - Changed to "Continue"
                             Button(action: { purchaseSubscription() }) {
                                 HStack {
                                     if isPurchasing {
                                         ProgressView()
-                                            .tint(.white)
+                                            .tint(Color(hex: "2d6a4f"))
                                     } else {
-                                        Text("Start Free Trial")
+                                        Text("Continue")
                                             .font(.system(size: 18, weight: .bold))
                                     }
                                 }
@@ -154,22 +169,42 @@ struct PaywallView: View {
                             }
                             .disabled(isRestoring)
                             
-                            // Fine print
-                            VStack(spacing: 8) {
-                                Text("Payment will be charged to your Apple ID account at confirmation of purchase. Subscription automatically renews unless cancelled at least 24 hours before the end of the current period. Manage subscriptions in Settings.")
-                                    .font(.system(size: 11))
-                                    .foregroundColor(.white.opacity(0.6))
-                                    .multilineTextAlignment(.center)
+                            // MARK: - Footer (Apple-Safe Legal Language)
+                            VStack(spacing: 12) {
+                                // Apple's exact recommended wording
+                                VStack(spacing: 6) {
+                                    Text("Payment will be charged to your Apple ID at confirmation of purchase.")
+                                        .font(.system(size: 10))
+                                        .foregroundColor(.white.opacity(0.6))
+                                        .multilineTextAlignment(.center)
+                                    
+                                    Text("Subscription automatically renews unless canceled at least 24 hours before the end of the current period.")
+                                        .font(.system(size: 10))
+                                        .foregroundColor(.white.opacity(0.6))
+                                        .multilineTextAlignment(.center)
+                                    
+                                    Text("Your account will be charged for renewal within 24 hours prior to the end of the current period.")
+                                        .font(.system(size: 10))
+                                        .foregroundColor(.white.opacity(0.6))
+                                        .multilineTextAlignment(.center)
+                                    
+                                    Text("Manage or cancel subscriptions in your Apple ID settings.")
+                                        .font(.system(size: 10))
+                                        .foregroundColor(.white.opacity(0.6))
+                                        .multilineTextAlignment(.center)
+                                }
                                 
-                                HStack(spacing: 16) {
+                                // Links
+                                HStack(spacing: 8) {
                                     Link("Privacy Policy", destination: URL(string: "https://ssewalker-afk.github.io/Leadership-Notes/privacy-policy.html")!)
                                     Text("•")
-                                    Link("Terms of Service", destination: URL(string: "https://ssewalker-afk.github.io/Leadership-Notes/terms-of-service.html")!)
+                                    Link("Terms of Use", destination: URL(string: "https://ssewalker-afk.github.io/Leadership-Notes/terms-of-service.html")!)
                                 }
-                                .font(.system(size: 11))
-                                .foregroundColor(.white.opacity(0.7))
+                                .font(.system(size: 11, weight: .medium))
+                                .foregroundColor(.white.opacity(0.8))
                             }
                             .padding(.horizontal, 30)
+                            .padding(.top, 8)
                             .padding(.bottom, 30)
                         }
                         .padding(.top, 10)
