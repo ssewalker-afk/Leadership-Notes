@@ -198,7 +198,7 @@ struct PaywallView: View {
                                 HStack(spacing: 8) {
                                     Link("Privacy Policy", destination: URL(string: "https://ssewalker-afk.github.io/Leadership-Notes/privacy-policy.html")!)
                                     Text("•")
-                                    Link("Terms of Use", destination: URL(string: "https://ssewalker-afk.github.io/Leadership-Notes/terms-of-service.html")!)
+                                    Link("Terms of Use", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
                                 }
                                 .font(.system(size: 11, weight: .medium))
                                 .foregroundColor(.white.opacity(0.8))

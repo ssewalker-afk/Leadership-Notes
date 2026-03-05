@@ -193,7 +193,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     SectionLabel(text: "📄 LEGAL & SUPPORT", theme: theme)
                     
-                    Link(destination: URL(string: "https://ssewalker-afk.github.io/leadership-notes/support.html")!) {
+                    Link(destination: URL(string: "https://ssewalker-afk.github.io/Leadership-Notes/support.html")!) {
                         HStack {
                             Text("Support & Help")
                                 .font(.system(size: 15, weight: .semibold))
@@ -208,7 +208,7 @@ struct SettingsView: View {
                     Divider()
                         .background(theme.border)
                     
-                    Link(destination: URL(string: "https://ssewalker-afk.github.io/leadership-notes/privacy-policy.html")!) {
+                    Link(destination: URL(string: "https://ssewalker-afk.github.io/Leadership-Notes/privacy-policy.html")!) {
                         HStack {
                             Text("Privacy Policy")
                                 .font(.system(size: 15, weight: .semibold))
@@ -223,9 +223,9 @@ struct SettingsView: View {
                     Divider()
                         .background(theme.border)
                     
-                    Link(destination: URL(string: "https://ssewalker-afk.github.io/leadership-notes/terms-of-service.html")!) {
+                    Link(destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!) {
                         HStack {
-                            Text("Terms of Service")
+                            Text("Terms of Use (EULA)")
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(theme.text)
                             Spacer()
