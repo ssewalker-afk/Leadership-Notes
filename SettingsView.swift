@@ -15,9 +15,9 @@ struct SettingsView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("⚙️ Settings")
-                .font(.system(size: 19, weight: .heavy))
-                .foregroundColor(theme.accent)
+            Text("Settings")
+                .font(.system(size: 28, weight: .bold))
+                .foregroundColor(theme.text)
             
             // Tabs
             HStack(spacing: 4) {
@@ -65,7 +65,7 @@ struct SettingsView: View {
             // Theme
             CardView(theme: theme) {
                 VStack(alignment: .leading, spacing: 6) {
-                    SectionLabel(text: "🎨 THEME", theme: theme)
+                    SectionLabel(text: "Theme", theme: theme)
                     
                     HStack(spacing: 8) {
                         ForEach(AppTheme.allCases, id: \.self) { themeOption in
@@ -92,7 +92,7 @@ struct SettingsView: View {
             // Duration settings
             CardView(theme: theme) {
                 VStack(alignment: .leading, spacing: 10) {
-                    SectionLabel(text: "⏱️ DURATION MAX", theme: theme)
+                    SectionLabel(text: "Duration Max", theme: theme)
                     TextField("Max", value: Binding(
                         get: { store.durationSettings.max },
                         set: { store.durationSettings.max = $0; store.save() }
@@ -106,7 +106,7 @@ struct SettingsView: View {
                             .stroke(theme.border, lineWidth: 1.5)
                     )
                     
-                    SectionLabel(text: "⏱️ INCREMENT", theme: theme)
+                    SectionLabel(text: "Increment", theme: theme)
                     TextField("Increment", value: Binding(
                         get: { store.durationSettings.increment },
                         set: { store.durationSettings.increment = $0; store.save() }
@@ -126,7 +126,7 @@ struct SettingsView: View {
             // Follow-up options
             CardView(theme: theme) {
                 VStack(alignment: .leading, spacing: 6) {
-                    SectionLabel(text: "📅 FOLLOW-UP OPTIONS", theme: theme)
+                    SectionLabel(text: "Follow-Up Options", theme: theme)
                     
                     ForEach(Array(store.followups.enumerated()), id: \.element.id) { index, followup in
                         HStack(spacing: 6) {
@@ -191,7 +191,7 @@ struct SettingsView: View {
             // Legal Links
             CardView(theme: theme) {
                 VStack(alignment: .leading, spacing: 10) {
-                    SectionLabel(text: "📄 LEGAL & SUPPORT", theme: theme)
+                    SectionLabel(text: "Legal & Support", theme: theme)
                     
                     Link(destination: URL(string: "https://ssewalker-afk.github.io/Leadership-Notes/support.html")!) {
                         HStack {
@@ -321,13 +321,12 @@ struct SettingsView: View {
                         team: team,
                         peopleCount: store.people.filter { $0.teamId == team.id }.count,
                         theme: theme,
-                        onToggle: {
-                            if let index = store.teams.firstIndex(where: { $0.id == team.id }) {
-                                store.teams[index].active.toggle()
-                                store.save()
-                            }
-                        },
-                        onEdit: { editingTeamId = team.id }
+                        onEdit: { editingTeamId = team.id },
+                        onDelete: {
+                            store.teams.removeAll { $0.id == team.id }
+                            store.save()
+                            showToast("🗑️ Team deleted")
+                        }
                     )
                 }
             }
@@ -344,7 +343,7 @@ struct SettingsView: View {
                         .foregroundColor(theme.textSoft)
                         .lineSpacing(3)
                     
-                    Text("\(store.entries.count) entries • \(store.people.count) people")
+                    Text("\(store.entries.count) entries • \(store.people.count) team members")
                         .font(.system(size: 12))
                         .foregroundColor(theme.textMuted)
                     
@@ -377,7 +376,7 @@ struct SettingsView: View {
                     
                     // Archive by year
                     VStack(alignment: .leading, spacing: 6) {
-                        SectionLabel(text: "📦 ARCHIVE YEAR", theme: theme)
+                        SectionLabel(text: "Archive Year", theme: theme)
                         
                         let years = Array(Set(store.entries.map { Calendar.current.component(.year, from: $0.timestamp) })).sorted()
                         
@@ -427,7 +426,7 @@ struct SettingsView: View {
                             showToast("☢️ Reset complete")
                         }
                     } message: {
-                        Text("This will permanently delete all entries, people, and custom settings. This cannot be undone.")
+                        Text("This will permanently delete all entries, team members, and custom settings. This cannot be undone.")
                     }
                 }
                 .padding(16)
@@ -558,8 +557,10 @@ struct CategoryDisplayCard: View {
         CardView(theme: theme) {
             HStack {
                 HStack(spacing: 8) {
-                    Text(category.icon)
+                    Image(systemName: category.icon)
                         .font(.system(size: 20))
+                        .foregroundColor(category.colorValue)
+                        .frame(width: 30)
                     
                     VStack(alignment: .leading, spacing: 2) {
                         Text(category.label)
@@ -613,8 +614,21 @@ struct EditCategoryCard: View {
                 TextField("Name", text: $category.label)
                     .textFieldStyle(ThemedTextFieldStyle(theme: theme))
                 
-                TextField("Emoji", text: $category.icon)
-                    .textFieldStyle(ThemedTextFieldStyle(theme: theme))
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 8) {
+                        Image(systemName: category.icon)
+                            .font(.system(size: 24))
+                            .foregroundColor(category.colorValue)
+                            .frame(width: 30)
+                        
+                        TextField("SF Symbol Name (e.g. star.fill)", text: $category.icon)
+                            .textFieldStyle(ThemedTextFieldStyle(theme: theme))
+                    }
+                    
+                    Text("Tip: Search for symbols at developer.apple.com/sf-symbols")
+                        .font(.system(size: 9))
+                        .foregroundColor(theme.textMuted)
+                }
                 
                 ColorPicker("Color", selection: Binding(
                     get: { category.colorValue },
@@ -663,8 +677,10 @@ struct TeamDisplayCard: View {
     let team: Team
     let peopleCount: Int
     let theme: ThemeColors
-    let onToggle: () -> Void
     let onEdit: () -> Void
+    let onDelete: () -> Void
+    
+    @State private var showDeleteAlert = false
     
     var body: some View {
         CardView(theme: theme) {
@@ -672,23 +688,33 @@ struct TeamDisplayCard: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(team.name)
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundColor(team.active ? theme.text : theme.textMuted)
+                        .foregroundColor(theme.text)
                     
-                    Text("\(team.active ? "Active" : "Inactive") • \(peopleCount) people")
+                    Text("\(peopleCount) team members")
                         .font(.system(size: 11))
-                        .foregroundColor(team.active ? theme.accent : theme.textMuted)
+                        .foregroundColor(theme.textMuted)
                 }
                 
                 Spacer()
                 
                 HStack(spacing: 8) {
-                    Button(team.active ? "Deactivate" : "Activate", action: onToggle)
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundColor(team.active ? theme.danger : theme.accent)
-                    
                     Button("Rename", action: onEdit)
                         .font(.system(size: 12, weight: .bold))
                         .foregroundColor(theme.accent)
+                    
+                    Button(action: { showDeleteAlert = true }) {
+                        Image(systemName: "trash")
+                            .font(.system(size: 12, weight: .bold))
+                            .foregroundColor(peopleCount == 0 ? theme.danger : theme.textMuted)
+                    }
+                    .disabled(peopleCount > 0)
+                    .opacity(peopleCount > 0 ? 0.5 : 1.0)
+                    .alert("Delete \(team.name)?", isPresented: $showDeleteAlert) {
+                        Button("Cancel", role: .cancel) {}
+                        Button("Delete", role: .destructive, action: onDelete)
+                    } message: {
+                        Text("This team will be permanently deleted.")
+                    }
                 }
             }
             .padding(16)
@@ -734,7 +760,7 @@ extension SettingsView {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        SectionLabel(text: "💳 SUBSCRIPTION", theme: theme)
+                        SectionLabel(text: "Subscription", theme: theme)
                         
                         HStack(spacing: 6) {
                             Circle()

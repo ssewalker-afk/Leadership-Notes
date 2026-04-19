@@ -3,7 +3,7 @@ import SwiftUI
 import SwiftUI
 
 enum MainView {
-    case entry, history, reports, people, settings
+    case entry, history, reports, team, settings
 }
 
 struct ContentView: View {
@@ -37,13 +37,16 @@ struct ContentView: View {
                         // Main content
                         contentView
                             .padding(.horizontal, 14)
-                            .padding(.bottom, 80)
+                            .padding(.bottom, 100) // Extra padding for floating tab bar
                     }
                 }
                 
                 Spacer()
-                
-                // Bottom navigation
+            }
+            
+            // Floating Bottom Navigation
+            VStack {
+                Spacer()
                 bottomNav
             }
             
@@ -73,6 +76,14 @@ struct ContentView: View {
             PaywallView(subscriptionManager: subscriptionManager)
         }
         .onAppear {
+            // MARK: - Development Bypass
+            // TODO: Remove before App Store submission!
+            #if DEBUG
+            // Uncomment the line below to bypass paywall during development
+            // showPaywall = false
+            // return
+            #endif
+            
             // Show paywall if not subscribed
             if !subscriptionManager.isSubscribed {
                 showPaywall = true
@@ -92,30 +103,25 @@ struct ContentView: View {
     private var header: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                Text("📋 Leadership Notes")
-                    .font(.system(size: 17, weight: .heavy))
-                    .foregroundColor(theme.accent)
+                Text("Leadership Notes")
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundColor(theme.text)
                 
                 Text("PRIVATE • ON-DEVICE")
-                    .font(.system(size: 9, weight: .bold))
+                    .font(.system(size: 9, weight: .medium))
                     .foregroundColor(theme.textMuted)
-                    .tracking(1)
+                    .tracking(0.5)
             }
             
             Spacer()
             
             Button(action: { showMenu.toggle() }) {
-                Text("🍔")
-                    .font(.system(size: 14, weight: .bold))
+                Image(systemName: "line.3.horizontal")
+                    .font(.system(size: 16, weight: .medium))
                     .foregroundColor(theme.accent)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 7)
+                    .frame(width: 36, height: 36)
                     .background(theme.accentGlow)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(theme.borderAccent, lineWidth: 1)
-                    )
+                    .cornerRadius(8)
             }
             .popover(isPresented: $showMenu) {
                 menuView
@@ -123,11 +129,11 @@ struct ContentView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        .background(theme.bgNav)
+        .background(theme.bgNav.opacity(0.95))
         .overlay(
             Rectangle()
-                .frame(height: 1)
-                .foregroundColor(theme.border),
+                .frame(height: 0.5)
+                .foregroundColor(theme.border.opacity(0.5)),
             alignment: .bottom
         )
     }
@@ -135,13 +141,13 @@ struct ContentView: View {
     // MARK: - Menu
     private var menuView: some View {
         VStack(spacing: 0) {
-            menuItem(icon: "⚡", label: "Entry", view: .entry)
-            menuItem(icon: "📋", label: "History", view: .history)
-            menuItem(icon: "📊", label: "Reports", view: .reports)
-            menuItem(icon: "👥", label: "People", view: .people)
-            menuItem(icon: "⚙️", label: "Settings", view: .settings)
+            menuItem(icon: "bolt.fill", label: "Entry", view: .entry)
+            menuItem(icon: "list.bullet", label: "History", view: .history)
+            menuItem(icon: "chart.bar.fill", label: "Reports", view: .reports)
+            menuItem(icon: "person.2.fill", label: "Team", view: .team)
+            menuItem(icon: "gearshape.fill", label: "Settings", view: .settings)
         }
-        .frame(width: 180)
+        .frame(width: 200)
         .background(theme.bgCard)
         .presentationCompactAdaptation(.popover)
     }
@@ -151,12 +157,19 @@ struct ContentView: View {
             currentView = view
             showMenu = false
         }) {
-            HStack(spacing: 10) {
-                Text(icon)
-                    .font(.system(size: 16))
+            HStack(spacing: 12) {
+                Image(systemName: icon)
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundColor(currentView == view ? theme.accent : theme.textSoft)
+                    .frame(width: 20)
                 Text(label)
-                    .font(.system(size: 14, weight: currentView == view ? .heavy : .medium))
+                    .font(.system(size: 15, weight: currentView == view ? .semibold : .regular))
                 Spacer()
+                if currentView == view {
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundColor(theme.accent)
+                }
             }
             .foregroundColor(currentView == view ? theme.accent : theme.textSoft)
             .padding(.horizontal, 16)
@@ -171,24 +184,43 @@ struct ContentView: View {
     private var remindersView: some View {
         let reminders = store.reminders()
         if !reminders.isEmpty {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("🔔 \(reminders.count) REMINDER\(reminders.count > 1 ? "S" : "")")
-                    .font(.system(size: 11, weight: .heavy))
-                    .foregroundColor(theme.warn)
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 6) {
+                    Image(systemName: "bell.badge.fill")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundColor(theme.warn)
+                    Text("\(reminders.count) REMINDER\(reminders.count > 1 ? "S" : "")")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(theme.warn)
+                }
                 
                 ForEach(reminders.prefix(4)) { reminder in
-                    Text("\(reminder.isFollowup ? "🎯" : "📅") **\(reminder.person)** — \(reminder.label) (\(reminder.days == 0 ? "Today!" : "\(reminder.days)d"))")
-                        .font(.system(size: 12))
-                        .foregroundColor(theme.textSoft)
+                    HStack(spacing: 8) {
+                        Image(systemName: reminder.isFollowup ? "target" : "calendar")
+                            .font(.system(size: 11, weight: .medium))
+                            .foregroundColor(theme.textSoft)
+                            .frame(width: 16)
+                        Text("**\(reminder.person)** — \(reminder.label)")
+                            .font(.system(size: 13))
+                            .foregroundColor(theme.textSoft)
+                        Spacer()
+                        Text(reminder.days == 0 ? "Today" : "\(reminder.days)d")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(theme.warn)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 3)
+                            .background(theme.warn.opacity(0.15))
+                            .cornerRadius(6)
+                    }
                 }
             }
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(theme.warnBg)
-            .cornerRadius(14)
+            .cornerRadius(12)
             .overlay(
-                RoundedRectangle(cornerRadius: 14)
-                    .stroke(theme.warn.opacity(0.3), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(theme.warn.opacity(0.2), lineWidth: 1)
             )
             .padding(.horizontal, 14)
             .padding(.top, 10)
@@ -205,43 +237,54 @@ struct ContentView: View {
             HistoryView(store: store, theme: theme, showToast: showToast, navigateToEntry: { navigateToEntry($0) })
         case .reports:
             ReportsView(store: store, theme: theme, showToast: showToast)
-        case .people:
+        case .team:
             PeopleView(store: store, theme: theme, showToast: showToast)
         case .settings:
             SettingsView(store: store, theme: theme, showToast: showToast, subscriptionManager: subscriptionManager)
         }
     }
     
-    // MARK: - Bottom Navigation
+    // MARK: - Bottom Navigation (Floating with Liquid Glass)
     private var bottomNav: some View {
-        HStack {
-            navButton(icon: "⚡", label: "Entry", view: .entry)
-            navButton(icon: "📋", label: "History", view: .history)
-            navButton(icon: "📊", label: "Reports", view: .reports)
-            navButton(icon: "👥", label: "People", view: .people)
+        HStack(spacing: 4) {
+            navButton(icon: "bolt.fill", label: "Entry", view: .entry)
+            navButton(icon: "list.bullet", label: "History", view: .history)
+            navButton(icon: "chart.bar.fill", label: "Reports", view: .reports)
+            navButton(icon: "person.2.fill", label: "Team", view: .team)
         }
-        .padding(.vertical, 5)
-        .padding(.bottom, 8)
-        .background(theme.bgNav)
-        .overlay(
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(theme.border),
-            alignment: .top
-        )
+        .padding(.vertical, 8)
+        .padding(.horizontal, 8)
+        .glassEffect(.regular.interactive(), in: .capsule)
+        .padding(.horizontal, 20)
+        .padding(.bottom, 12)
+        .shadow(color: .black.opacity(0.15), radius: 12, x: 0, y: 4)
     }
     
     private func navButton(icon: String, label: String, view: MainView) -> some View {
-        Button(action: { currentView = view }) {
-            VStack(spacing: 1) {
-                Text(icon)
-                    .font(.system(size: 18))
+        Button(action: { 
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                currentView = view
+            }
+        }) {
+            VStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.system(size: 22, weight: currentView == view ? .semibold : .regular))
+                    .symbolEffect(.bounce, value: currentView == view)
                 Text(label)
-                    .font(.system(size: 9, weight: .heavy))
+                    .font(.system(size: 10, weight: currentView == view ? .semibold : .regular))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
             }
             .foregroundColor(currentView == view ? theme.accent : theme.textMuted)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 4)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 2)
+            .background(
+                currentView == view ? 
+                    theme.accentGlow.opacity(0.6) : Color.clear
+            )
+            .cornerRadius(12)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }

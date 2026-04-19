@@ -33,9 +33,9 @@ struct PeopleView: View {
     // MARK: - People List
     private var peopleListView: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("👥 People")
-                .font(.system(size: 19, weight: .heavy))
-                .foregroundColor(theme.accent)
+            Text("Team Members")
+                .font(.system(size: 28, weight: .bold))
+                .foregroundColor(theme.text)
             
             // Add person
             VStack(spacing: 8) {
@@ -89,7 +89,7 @@ struct PeopleView: View {
             if store.people.isEmpty {
                 VStack {
                     Spacer()
-                    Text("No people yet 👋")
+                    Text("No team members yet 👋")
                         .foregroundColor(theme.textMuted)
                         .padding(40)
                     Spacer()
@@ -348,6 +348,7 @@ struct PersonDetailView: View {
                 )
             
             DatePicker("Date", selection: $newDate, displayedComponents: .date)
+                .tint(theme.accent)
                 .padding(11)
                 .background(theme.bgInput)
                 .cornerRadius(10)
@@ -362,6 +363,7 @@ struct PersonDetailView: View {
                 Text("2 weeks before").tag("2 weeks")
             }
             .pickerStyle(.menu)
+            .tint(theme.accent)
             .padding(11)
             .background(theme.bgInput)
             .cornerRadius(10)
@@ -498,25 +500,13 @@ struct TeamPickerSheet: View {
                 
                 ScrollView {
                     VStack(spacing: 14) {
-                        // Active teams section
-                        if !store.teams.filter({ $0.active }).isEmpty {
+                        // All teams
+                        if !store.teams.isEmpty {
                             VStack(alignment: .leading, spacing: 8) {
-                                SectionLabel(text: "ACTIVE TEAMS", theme: theme)
+                                SectionLabel(text: "TEAMS", theme: theme)
                                     .padding(.horizontal, 20)
                                 
-                                ForEach(store.teams.filter { $0.active }) { team in
-                                    teamRow(team: team)
-                                }
-                            }
-                        }
-                        
-                        // Inactive teams section
-                        if !store.teams.filter({ !$0.active }).isEmpty {
-                            VStack(alignment: .leading, spacing: 8) {
-                                SectionLabel(text: "INACTIVE TEAMS", theme: theme)
-                                    .padding(.horizontal, 20)
-                                
-                                ForEach(store.teams.filter { !$0.active }) { team in
+                                ForEach(store.teams) { team in
                                     teamRow(team: team)
                                 }
                             }
@@ -657,21 +647,11 @@ struct TeamPickerSheet: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(team.name)
                                 .font(.system(size: 15, weight: .bold))
-                                .foregroundColor(team.active ? theme.text : theme.textMuted)
+                                .foregroundColor(theme.text)
                             
-                            HStack(spacing: 8) {
-                                Text(team.active ? "Active" : "Inactive")
-                                    .font(.system(size: 11))
-                                    .foregroundColor(team.active ? theme.accent : theme.textMuted)
-                                
-                                Text("•")
-                                    .font(.system(size: 11))
-                                    .foregroundColor(theme.textMuted)
-                                
-                                Text("\(store.people.filter { $0.teamId == team.id }.count) people")
-                                    .font(.system(size: 11))
-                                    .foregroundColor(theme.textMuted)
-                            }
+                            Text("\(store.people.filter { $0.teamId == team.id }.count) team members")
+                                .font(.system(size: 11))
+                                .foregroundColor(theme.textMuted)
                         }
                         
                         Spacer()

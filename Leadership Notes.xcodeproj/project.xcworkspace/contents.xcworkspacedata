@@ -5,33 +5,21 @@
       location = "self:">
    </FileRef>
    <FileRef
-      location = "group:index.html">
+      location = "group:STOREKIT_DEBUG_STEPS.md">
    </FileRef>
    <FileRef
-      location = "group:terms-of-service.html">
+      location = "group:QUICK_FIX_SUMMARY.md">
    </FileRef>
    <FileRef
-      location = "group:LEGAL.md">
+      location = "group:TERMINOLOGY_UPDATE_SUMMARY.md">
    </FileRef>
    <FileRef
-      location = "group:support.html">
+      location = "group:TEAM_UPDATE_QUICK_GUIDE.md">
    </FileRef>
    <FileRef
-      location = "group:index 2.html">
+      location = "group:APP_STORE_MARKETING.md">
    </FileRef>
    <FileRef
-      location = "group:LEGAL 2.md">
-   </FileRef>
-   <FileRef
-      location = "group:APP_STORE_CHECKLIST.md">
-   </FileRef>
-   <FileRef
-      location = "group:support 2.html">
-   </FileRef>
-   <FileRef
-      location = "group:terms-of-service 2.html">
-   </FileRef>
-   <FileRef
-      location = "group:index 3.html">
+      location = "group:PRODUCT_ID_UPDATE.md">
    </FileRef>
 </Workspace>

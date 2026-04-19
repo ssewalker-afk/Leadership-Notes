@@ -29,9 +29,10 @@ struct SectionLabel: View {
     
     var body: some View {
         Text(text)
-            .font(.system(size: 11, weight: .heavy))
-            .foregroundColor(theme.accent)
-            .tracking(0.8)
+            .font(.system(size: 12, weight: .semibold))
+            .foregroundColor(theme.textMuted)
+            .tracking(0.5)
+            .textCase(.uppercase)
     }
 }
 
@@ -84,21 +85,23 @@ struct CategoryButton: View {
     
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 6) {
-                Text(category.icon)
-                    .font(.system(size: 15))
+            HStack(spacing: 10) {
+                Image(systemName: category.icon)
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundColor(isSelected ? category.colorValue : theme.textSoft)
+                    .frame(width: 24)
                 Text(category.label)
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.system(size: 15, weight: isSelected ? .semibold : .regular))
+                Spacer()
             }
             .foregroundColor(isSelected ? category.colorValue : theme.textSoft)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 11)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(isSelected ? category.colorValue.opacity(0.18) : theme.bgInput)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 12)
+            .background(isSelected ? category.colorValue.opacity(0.12) : theme.bgInput)
             .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(isSelected ? category.colorValue : theme.border, lineWidth: isSelected ? 2 : 1)
+                    .stroke(isSelected ? category.colorValue.opacity(0.5) : theme.border.opacity(0.5), lineWidth: isSelected ? 1.5 : 1)
             )
         }
     }
@@ -115,19 +118,20 @@ struct CategoryBadge: View {
     }
     
     var body: some View {
-        HStack(spacing: 3) {
-            Text(category.icon)
+        HStack(spacing: 4) {
+            Image(systemName: category.icon)
+                .font(.system(size: small ? 10 : 11, weight: .medium))
             Text(category.label)
+                .font(.system(size: small ? 11 : 12, weight: .medium))
         }
-        .font(.system(size: small ? 11 : 12, weight: .bold))
         .foregroundColor(category.colorValue)
         .padding(.horizontal, small ? 7 : 10)
-        .padding(.vertical, small ? 2 : 3)
-        .background(category.colorValue.opacity(0.2))
+        .padding(.vertical, small ? 3 : 4)
+        .background(category.colorValue.opacity(0.15))
         .cornerRadius(8)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(category.colorValue.opacity(0.4), lineWidth: 1)
+                .stroke(category.colorValue.opacity(0.3), lineWidth: 1)
         )
     }
 }
@@ -260,7 +264,7 @@ extension Date {
     
     func shortDate() -> String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateFormat = "MMM d, yyyy"
         return formatter.string(from: self)
     }
     

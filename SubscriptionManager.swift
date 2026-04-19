@@ -10,7 +10,6 @@ class SubscriptionManager: ObservableObject {
     private var updateListenerTask: Task<Void, Never>?
     
     // Your product ID from App Store Connect
-    // Format: com.yourcompany.leadershipnotes.monthly
     private let productID = "Leadership_Notes_Monthly"
     
     enum SubscriptionStatus {
@@ -38,10 +37,17 @@ class SubscriptionManager: ObservableObject {
     // MARK: - Load Products
     func loadProducts() async {
         do {
+            print("🛒 Loading products for ID: \(productID)")
             let loadedProducts = try await Product.products(for: [productID])
             self.products = loadedProducts
+            print("🛒 Loaded \(loadedProducts.count) product(s)")
+            if let product = loadedProducts.first {
+                print("🛒 Product: \(product.displayName) - \(product.displayPrice)")
+            } else {
+                print("⚠️ No products found! Check Product ID matches StoreKit config")
+            }
         } catch {
-            print("Failed to load products: \(error)")
+            print("❌ Failed to load products: \(error)")
         }
     }
     

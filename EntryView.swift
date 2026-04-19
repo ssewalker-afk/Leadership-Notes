@@ -1,7 +1,5 @@
 import SwiftUI
 
-import SwiftUI
-
 struct EntryView: View {
     @ObservedObject var store: AppStore
     let theme: ThemeColors
@@ -30,9 +28,9 @@ struct EntryView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text(editingEntryId != nil ? "✏️ Edit Entry" : "⚡ Quick Entry")
-                .font(.system(size: 19, weight: .heavy))
-                .foregroundColor(theme.accent)
+            Text(editingEntryId != nil ? "Edit Entry" : "Quick Entry")
+                .font(.system(size: 28, weight: .bold))
+                .foregroundColor(theme.text)
             
             // Person selection
             personSection
@@ -63,8 +61,8 @@ struct EntryView: View {
             
             // Save button
             Button(action: saveEntry) {
-                Text(editingEntryId != nil ? "✏️ Update" : "⚡ Save Entry")
-                    .font(.system(size: 15, weight: .heavy))
+                Text(editingEntryId != nil ? "Update Entry" : "Save Entry")
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(store.theme == .light ? .white : Color(hex: "001a1a"))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
@@ -75,7 +73,7 @@ struct EntryView: View {
             if editingEntryId != nil {
                 Button(action: resetForm) {
                     Text("Cancel")
-                        .font(.system(size: 15, weight: .heavy))
+                        .font(.system(size: 15, weight: .semibold))
                         .foregroundColor(theme.accent)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
@@ -93,11 +91,11 @@ struct EntryView: View {
     // MARK: - Person Section
     private var personSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            SectionLabel(text: "👤 PERSON", theme: theme)
+            SectionLabel(text: "Person", theme: theme)
             
             if store.people.isEmpty && !showAddPerson {
                 Button(action: { showAddPerson = true }) {
-                    Text("+ Add First Person")
+                    Text("+ Add First Team Member")
                         .font(.system(size: 15, weight: .heavy))
                         .foregroundColor(store.theme == .light ? .white : Color(hex: "001a1a"))
                         .frame(maxWidth: .infinity)
@@ -167,11 +165,10 @@ struct EntryView: View {
                                     showAddPerson = false
                                     newPersonName = ""
                                 }) {
-                                    Text("✕")
-                                        .font(.system(size: 15, weight: .heavy))
+                                    Image(systemName: "xmark")
+                                        .font(.system(size: 13, weight: .semibold))
                                         .foregroundColor(theme.accent)
-                                        .padding(.horizontal, 18)
-                                        .padding(.vertical, 14)
+                                        .frame(width: 44, height: 44)
                                         .background(theme.accentGlow)
                                         .cornerRadius(12)
                                         .overlay(
@@ -191,7 +188,7 @@ struct EntryView: View {
     // MARK: - Category Section
     private var categorySection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            SectionLabel(text: "📂 CATEGORY", theme: theme)
+            SectionLabel(text: "Category", theme: theme)
             
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 7) {
                 ForEach(store.categories) { category in
@@ -238,7 +235,7 @@ struct EntryView: View {
     // MARK: - Duration Section
     private var durationSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            SectionLabel(text: "⏱️ DURATION (MINUTES)", theme: theme)
+            SectionLabel(text: "Duration (Minutes)", theme: theme)
             
             DurationPicker(
                 value: $duration,
@@ -251,16 +248,16 @@ struct EntryView: View {
     // MARK: - Notice Section
     private var noticeSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            SectionLabel(text: "📢 NOTICE GIVEN?", theme: theme)
+            SectionLabel(text: "Notice Given?", theme: theme)
             
-            Toggle2(value: $notice, labelA: "Yes 📢", labelB: "No 🚫", theme: theme)
+            Toggle2(value: $notice, labelA: "Yes", labelB: "No", theme: theme)
         }
     }
     
     // MARK: - Follow-up Section
     private var followupSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            SectionLabel(text: "📅 FOLLOW-UP?", theme: theme)
+            SectionLabel(text: "Follow-Up?", theme: theme)
             
             if followupHours == nil {
                 Button(action: { followupHours = store.followups.first?.hours ?? 24 }) {
@@ -297,9 +294,13 @@ struct EntryView: View {
                     }
                     
                     Button(action: { followupHours = nil }) {
-                        Text("✕ Remove")
-                            .font(.system(size: 12))
-                            .foregroundColor(theme.textMuted)
+                        HStack(spacing: 4) {
+                            Image(systemName: "xmark.circle.fill")
+                                .font(.system(size: 11))
+                            Text("Remove")
+                                .font(.system(size: 12, weight: .medium))
+                        }
+                        .foregroundColor(theme.textMuted)
                     }
                 }
             }
@@ -309,7 +310,7 @@ struct EntryView: View {
     // MARK: - Notes Section
     private var notesSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            SectionLabel(text: "📝 NOTES (OPTIONAL)", theme: theme)
+            SectionLabel(text: "Notes (Optional)", theme: theme)
             
             TextEditor(text: $notes)
                 .frame(height: 80)
@@ -332,19 +333,19 @@ struct EntryView: View {
         selectedPersonId = person.id
         newPersonName = ""
         showAddPerson = false
-        showToast("👋 \(person.name) added!")
+        showToast("\(person.name) added!")
     }
     
     private func saveEntry() {
         guard let personId = selectedPersonId,
               !selectedCategoryId.isEmpty,
               let person = store.people.first(where: { $0.id == personId }) else {
-            showToast("⚡ Pick person & category!")
+            showToast("Pick person & category!")
             return
         }
         
         if selectedCategory?.hasSubType == true && selectedSubType == nil {
-            showToast("⚡ Pick a type!")
+            showToast("Pick a type!")
             return
         }
         
@@ -369,7 +370,7 @@ struct EntryView: View {
                 timestamp: existing.timestamp
             )
             store.updateEntry(updated)
-            showToast("✏️ Updated!")
+            showToast("Entry updated!")
         } else {
             let entry = Entry(
                 personId: personId,
@@ -382,7 +383,7 @@ struct EntryView: View {
                 notes: notes.trimmingCharacters(in: .whitespacesAndNewlines)
             )
             store.addEntry(entry)
-            showToast("⚡ Logged!")
+            showToast("Entry saved!")
         }
         
         resetForm()

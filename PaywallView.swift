@@ -24,6 +24,12 @@ struct PaywallView: View {
                 endPoint: .bottomTrailing
             )
             .ignoresSafeArea()
+            .onAppear {
+                print("📱 Paywall appeared")
+                print("📱 Is subscribed: \(subscriptionManager.isSubscribed)")
+                print("📱 Product loaded: \(subscriptionManager.monthlyProduct != nil)")
+                print("📱 Display price: \(subscriptionManager.displayPrice)")
+            }
             
             VStack(spacing: 0) {
                 // Close button (only show if already subscribed)
@@ -43,12 +49,13 @@ struct PaywallView: View {
                     VStack(spacing: 24) {
                         // App Icon and Title
                         VStack(spacing: 12) {
-                            Text("📋")
-                                .font(.system(size: 80))
+                            Image(systemName: "doc.text.fill")
+                                .font(.system(size: 72, weight: .light))
+                                .foregroundColor(.white)
                                 .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
                             
                             Text("Leadership Notes")
-                                .font(.system(size: 32, weight: .heavy))
+                                .font(.system(size: 32, weight: .bold))
                                 .foregroundColor(.white)
                             
                             Text("Professional coaching documentation")
@@ -62,37 +69,37 @@ struct PaywallView: View {
                         // Features
                         VStack(spacing: 16) {
                             FeatureRow(
-                                icon: "⚡",
+                                icon: "bolt.fill",
                                 title: "Quick Entry",
                                 description: "Log incidents in seconds"
                             )
                             
                             FeatureRow(
-                                icon: "📋",
+                                icon: "list.bullet.clipboard.fill",
                                 title: "Complete History",
                                 description: "Search and filter all entries"
                             )
                             
                             FeatureRow(
-                                icon: "📊",
+                                icon: "chart.bar.fill",
                                 title: "Professional Reports",
                                 description: "Generate reports instantly"
                             )
                             
                             FeatureRow(
-                                icon: "🔒",
+                                icon: "lock.fill",
                                 title: "100% Private",
                                 description: "All data stays on your device"
                             )
                             
                             FeatureRow(
-                                icon: "👥",
+                                icon: "person.2.fill",
                                 title: "Team Management",
                                 description: "Track multiple teams and dates"
                             )
                             
                             FeatureRow(
-                                icon: "💾",
+                                icon: "arrow.up.doc.fill",
                                 title: "Backup & Export",
                                 description: "Full control of your data"
                             )
@@ -272,15 +279,16 @@ struct FeatureRow: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            Text(icon)
-                .font(.system(size: 32))
+            Image(systemName: icon)
+                .font(.system(size: 24, weight: .medium))
+                .foregroundColor(.white)
                 .frame(width: 50, height: 50)
                 .background(.white.opacity(0.15))
                 .cornerRadius(12)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
-                    .font(.system(size: 16, weight: .bold))
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.white)
                 
                 Text(description)

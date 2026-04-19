@@ -43,9 +43,9 @@ struct HistoryView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("📋 History")
-                .font(.system(size: 19, weight: .heavy))
-                .foregroundColor(theme.accent)
+            Text("History")
+                .font(.system(size: 28, weight: .bold))
+                .foregroundColor(theme.text)
             
             // Search
             HStack {
@@ -64,12 +64,13 @@ struct HistoryView: View {
             // Filters
             HStack(spacing: 6) {
                 Picker("Person", selection: $filterPerson) {
-                    Text("All People").tag("all")
+                    Text("All Team").tag("all")
                     ForEach(store.people) { person in
                         Text(person.name).tag(person.id)
                     }
                 }
                 .pickerStyle(.menu)
+                .tint(theme.accent)
                 .padding(11)
                 .background(theme.bgInput)
                 .cornerRadius(10)
@@ -82,10 +83,17 @@ struct HistoryView: View {
                 Picker("Category", selection: $filterCategory) {
                     Text("All Categories").tag("all")
                     ForEach(store.categories) { category in
-                        Text("\(category.icon) \(category.label)").tag(category.id)
+                        Label {
+                            Text(category.label)
+                        } icon: {
+                            Image(systemName: category.icon)
+                                .foregroundColor(category.colorValue)
+                        }
+                        .tag(category.id)
                     }
                 }
                 .pickerStyle(.menu)
+                .tint(theme.accent)
                 .padding(11)
                 .background(theme.bgInput)
                 .cornerRadius(10)

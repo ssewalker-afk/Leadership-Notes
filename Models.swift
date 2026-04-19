@@ -7,9 +7,9 @@ enum AppTheme: String, CaseIterable, Codable {
     
     var displayName: String {
         switch self {
-        case .light: return "☀️ Light"
-        case .dark: return "🌙 Dark"
-        case .rainbow: return "💡 Neon"
+        case .light: return "Light"
+        case .dark: return "Dark"
+        case .rainbow: return "Neon"
         }
     }
 }
@@ -36,60 +36,60 @@ struct ThemeColors {
         switch theme {
         case .light:
             return ThemeColors(
-                bg: Color(hex: "f4f1eb"),
+                bg: Color(hex: "f5f5f7"),
                 bgCard: .white,
-                bgInput: .white,
+                bgInput: Color(hex: "f5f5f7"),
                 bgNav: .white,
-                text: Color(hex: "1a1a2e"),
-                textSoft: Color(hex: "666666"),
-                textMuted: Color(hex: "aaaaaa"),
+                text: Color(hex: "1d1d1f"),
+                textSoft: Color(hex: "6e6e73"),
+                textMuted: Color(hex: "86868b"),
                 accent: Color(hex: "2d6a4f"),
-                accentGlow: Color(hex: "2d6a4f").opacity(0.15),
-                border: Color(hex: "e0ddd5"),
-                borderAccent: Color(hex: "2d6a4f"),
-                danger: Color(hex: "d63031"),
-                dangerBg: Color(hex: "fff5f5"),
-                warn: Color(hex: "e67e22"),
-                warnBg: Color(hex: "fef9ef"),
+                accentGlow: Color(hex: "2d6a4f").opacity(0.1),
+                border: Color(hex: "d2d2d7"),
+                borderAccent: Color(hex: "2d6a4f").opacity(0.3),
+                danger: Color(hex: "ff3b30"),
+                dangerBg: Color(hex: "ff3b30").opacity(0.1),
+                warn: Color(hex: "ff9500"),
+                warnBg: Color(hex: "ff9500").opacity(0.08),
                 gradient: LinearGradient(colors: [Color(hex: "2d6a4f"), Color(hex: "40916c")], startPoint: .topLeading, endPoint: .bottomTrailing)
             )
         case .dark:
             return ThemeColors(
-                bg: Color(hex: "0a1f1f"),
-                bgCard: Color(hex: "001e1e").opacity(0.7),
-                bgInput: Color.black.opacity(0.3),
-                bgNav: Color(hex: "0a1414").opacity(0.95),
-                text: Color(hex: "e0f0ea"),
-                textSoft: Color.white.opacity(0.55),
-                textMuted: Color.white.opacity(0.25),
-                accent: Color(hex: "00e5a0"),
-                accentGlow: Color(hex: "00e5a0").opacity(0.15),
-                border: Color(hex: "00e5a0").opacity(0.12),
-                borderAccent: Color(hex: "00e5a0").opacity(0.4),
-                danger: Color(hex: "ff4757"),
-                dangerBg: Color(hex: "ff4757").opacity(0.1),
-                warn: Color(hex: "f0c040"),
-                warnBg: Color(hex: "f0c040").opacity(0.08),
-                gradient: LinearGradient(colors: [Color(hex: "00e5a0"), Color(hex: "00b87a")], startPoint: .topLeading, endPoint: .bottomTrailing)
+                bg: Color(hex: "000000"),
+                bgCard: Color(hex: "1c1c1e"),
+                bgInput: Color(hex: "2c2c2e"),
+                bgNav: Color(hex: "1c1c1e"),
+                text: Color(hex: "f5f5f7"),
+                textSoft: Color(hex: "98989d"),
+                textMuted: Color(hex: "636366"),
+                accent: Color(hex: "52b788"),
+                accentGlow: Color(hex: "52b788").opacity(0.15),
+                border: Color(hex: "38383a"),
+                borderAccent: Color(hex: "52b788").opacity(0.3),
+                danger: Color(hex: "ff453a"),
+                dangerBg: Color(hex: "ff453a").opacity(0.15),
+                warn: Color(hex: "ff9f0a"),
+                warnBg: Color(hex: "ff9f0a").opacity(0.15),
+                gradient: LinearGradient(colors: [Color(hex: "52b788"), Color(hex: "40916c")], startPoint: .topLeading, endPoint: .bottomTrailing)
             )
         case .rainbow:
             return ThemeColors(
-                bg: Color(hex: "1a1a2e"),
-                bgCard: Color(hex: "1e1432").opacity(0.7),
-                bgInput: Color.black.opacity(0.3),
-                bgNav: Color(hex: "140f28").opacity(0.95),
-                text: Color(hex: "f0e6ff"),
-                textSoft: Color.white.opacity(0.6),
-                textMuted: Color.white.opacity(0.25),
-                accent: Color(hex: "e040fb"),
-                accentGlow: Color(hex: "e040fb").opacity(0.15),
-                border: Color(hex: "e040fb").opacity(0.15),
-                borderAccent: Color(hex: "e040fb").opacity(0.4),
-                danger: Color(hex: "ff4757"),
-                dangerBg: Color(hex: "ff4757").opacity(0.1),
-                warn: Color(hex: "ffd93d"),
-                warnBg: Color(hex: "ffd93d").opacity(0.08),
-                gradient: LinearGradient(colors: [Color(hex: "e040fb"), Color(hex: "536dfe"), Color(hex: "00e5ff")], startPoint: .topLeading, endPoint: .bottomTrailing)
+                bg: Color(hex: "000000"),
+                bgCard: Color(hex: "1c1c1e"),
+                bgInput: Color(hex: "2c2c2e"),
+                bgNav: Color(hex: "1c1c1e"),
+                text: Color(hex: "f5f5f7"),
+                textSoft: Color(hex: "98989d"),
+                textMuted: Color(hex: "636366"),
+                accent: Color(hex: "bf5af2"),
+                accentGlow: Color(hex: "bf5af2").opacity(0.15),
+                border: Color(hex: "38383a"),
+                borderAccent: Color(hex: "bf5af2").opacity(0.3),
+                danger: Color(hex: "ff453a"),
+                dangerBg: Color(hex: "ff453a").opacity(0.15),
+                warn: Color(hex: "ffd60a"),
+                warnBg: Color(hex: "ffd60a").opacity(0.15),
+                gradient: LinearGradient(colors: [Color(hex: "bf5af2"), Color(hex: "5e5ce6"), Color(hex: "0a84ff")], startPoint: .topLeading, endPoint: .bottomTrailing)
             )
         }
     }
@@ -112,15 +112,15 @@ struct Category: Identifiable, Codable, Equatable {
     }
     
     static let defaults: [Category] = [
-        Category(id: "arrival", label: "Arrival", icon: "🚶", color: "2d6a4f", hasSubType: true, subTypes: ["Late", "Early"], hasDuration: true, hasNotice: true),
-        Category(id: "lunch", label: "Lunch", icon: "🍔", color: "e67e22", hasSubType: true, subTypes: ["Early", "Late"], hasDuration: true, hasNotice: true),
-        Category(id: "early_out", label: "Early Out", icon: "🚪", color: "ff7b54", hasSubType: true, subTypes: ["No Notice", "Short Notice"], hasDuration: true, hasNotice: false),
-        Category(id: "no_show", label: "No Show", icon: "👻", color: "d63031", hasSubType: true, subTypes: ["No Notice", "Short Notice"], hasDuration: false, hasNotice: false),
-        Category(id: "missing", label: "Missing", icon: "🔍", color: "8e44ad", hasSubType: false, hasDuration: true, hasNotice: true),
-        Category(id: "unauth_break", label: "Unauth Break", icon: "🚫", color: "c0392b", hasSubType: false, hasDuration: true, hasNotice: false, alwaysNoNotice: true),
-        Category(id: "coaching", label: "Coaching", icon: "🎯", color: "2980b9", hasSubType: false, hasDuration: false, hasNotice: false),
-        Category(id: "highlight", label: "Highlight", icon: "⭐", color: "f39c12", hasSubType: false, hasDuration: false, hasNotice: false),
-        Category(id: "note", label: "Note", icon: "📝", color: "7f8c8d", hasSubType: false, hasDuration: false, hasNotice: false),
+        Category(id: "arrival", label: "Arrival", icon: "figure.walk", color: "2d6a4f", hasSubType: true, subTypes: ["Late", "Early"], hasDuration: true, hasNotice: true),
+        Category(id: "lunch", label: "Lunch", icon: "fork.knife", color: "e67e22", hasSubType: true, subTypes: ["Early", "Late"], hasDuration: true, hasNotice: true),
+        Category(id: "early_out", label: "Early Out", icon: "door.left.hand.open", color: "ff7b54", hasSubType: true, subTypes: ["No Notice", "Short Notice"], hasDuration: true, hasNotice: false),
+        Category(id: "no_show", label: "No Show", icon: "person.fill.xmark", color: "d63031", hasSubType: true, subTypes: ["No Notice", "Short Notice"], hasDuration: false, hasNotice: false),
+        Category(id: "missing", label: "Missing", icon: "person.fill.questionmark", color: "8e44ad", hasSubType: false, hasDuration: true, hasNotice: true),
+        Category(id: "unauth_break", label: "Unauth Break", icon: "hand.raised.slash.fill", color: "c0392b", hasSubType: false, hasDuration: true, hasNotice: false, alwaysNoNotice: true),
+        Category(id: "coaching", label: "Coaching", icon: "target", color: "2980b9", hasSubType: false, hasDuration: false, hasNotice: false),
+        Category(id: "highlight", label: "Highlight", icon: "star.fill", color: "f39c12", hasSubType: false, hasDuration: false, hasNotice: false),
+        Category(id: "note", label: "Note", icon: "note.text", color: "7f8c8d", hasSubType: false, hasDuration: false, hasNotice: false),
     ]
 }
 
